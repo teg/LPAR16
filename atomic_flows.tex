@@ -1,6 +1,6 @@
 
 %====================
-\chapter{Atomic Flows}
+\section{Atomic Flows}
 
 \Tom{formalism -> invariant}
 
@@ -93,38 +93,7 @@ We call the following six diagrams (\emph{atomic-flow}) \emph{labels}\index{flow
 \newcommand{\lo}{{\mathit lo}}
 %---------------------------------------
 \begin{definition}\label{definition:AtomicFlow}
-An (\emph{atomic}) \emph{flow}\index{flow}\index{atomic flow|see{flow}} is a tuple $(V,E,\eta,\up,\lo)$, denoted $\phi$ or $\psi$, such that:
-\begin{enumerate}
-%-------------------
-\item $V$ is a finite set of \emph{vertices}\index{flow!vertices}, denoted by $\nu$;
-%-------------------
-\item $E$ is a finite set of \emph{edges}\index{flow!edges}, denoted by $\epsilon$, $\iota$ or small numerals $\one$, $\two$, $\dots$;
-%-------------------
-\item $\eta\colon V\to\{\aid,\aiu,\awd,\awu,\acd,\acu\}$ maps vertices to their \emph{labels}\index{flow!labels};
-%-------------------
-\item $\up\colon E\to V\cup\{\top\}$ and $\lo\colon E\to V\cup\{\bot\}$ are, respectively, the \emph{upper} and \emph{lower} maps, and $\top$ and $\bot$ are special vertices not belonging to $V$; we define, for every $\nu\in V\cup\{\top,\bot\}$, the set $L_\nu=\{\,\epsilon\mid\up(\epsilon)=\nu\,\}$ of \emph{lower edges of $\nu$}, the set $U_\nu=\{\,\epsilon\mid\lo(\epsilon)=\nu\,\}$ of \emph{upper edges of $\nu$}, and the set $E_\nu=L_\nu\cup U_\nu$ of \emph{edges of $\nu$};
-%-------------------
-\item if $\card S$ denotes the cardinality of set $S$, we have that
-\begin{align*}
-\mbox{if $\eta(\nu)=\aid$ then $\card{L_\nu}=2$ and $\card{U_\nu}=0$,}&\\
-\mbox{if $\eta(\nu)=\aiu$ then $\card{L_\nu}=0$ and $\card{U_\nu}=2$,}&\\
-\mbox{if $\eta(\nu)=\awd$ then $\card{L_\nu}=1$ and $\card{U_\nu}=0$,}&\\
-\mbox{if $\eta(\nu)=\awu$ then $\card{L_\nu}=0$ and $\card{U_\nu}=1$,}&\\
-\mbox{if $\eta(\nu)=\acd$ then $\card{L_\nu}=1$ and $\card{U_\nu}=2$,}&\\
-\mbox{if $\eta(\nu)=\acu$ then $\card{L_\nu}=2$ and $\card{U_\nu}=1$;}&
-\end{align*}
-%-------------------
-\item\label{definition:AtomicFlow:item:Acyclic} there is no sequence $\epsilon_1$, $\dots$, $\epsilon_h$ of edges of $V$ such that $\up(\epsilon_i)=\lo(\epsilon_{i+1\pmod h})$, for $1\le i\le h$;
-%-------------------
-\item\label{definition:AtomicFlow:item:PolarityAssignment} there is a \emph{polarity assignment}\index{flow!polarity assignment} $\pi\colon E\to\{\pmi,\ppl\}$ such that, for every $\nu\in V$,
-\begin{enumerate}
-%---------
-\item if $\eta(\nu)\in\{\acd,\acu\}$ then $\pi(E_\nu)=\{\pmi\}$ or $\pi(E_\nu)=\{\ppl\}$;
-%---------
-\item if $\eta(\nu)\in\{\aid,\aiu\}$ then $\pi(E_\nu)=\{\pmi,\ppl\}$.
-\end{enumerate}
-\end{enumerate}
-Given an atomic flow $\phi$, we say that the sets $L_\top=\{\epsilon_1,\dots,\epsilon_h\}$ and $U_\bot=\{\iota_1,\dots,\iota_k\}$ contain, respectively, the \emph{upper}\index{flow!upper edges} and \emph{lower edges of $\phi$}\index{flow!lower edges}.
+\TODO{}
 \end{definition}
 %---------------
 
@@ -150,35 +119,9 @@ We sometimes use flow labels to indicate what kind of vertices a flow might cont
 \]
 do not contain $\aid$, $\aiu$, $\awd$, $\awu$ vertices, and the flow to the right does not contain $\acu$ vertices.
 
-In general, we represent atomic flows as directed-graph diagrams, except that the special vertices $\top$ and $\bot$ are not shown, and the labels of the vertices are explicitly shown as graphical elements. When we refer to the vertices of an atomic flow, we do not include $\top$ and $\bot$. Sometimes we identify vertices with their labels. 
+In general, we represent atomic flows as directed-graph diagrams, except that the special vertices $\top$ and $\bot$ are not shown, and the labels of the vertices are explicitly shown as graphical elements. When we refer to the vertices of an atomic flow, we do not include $\top$ and $\bot$. Sometimes we identify vertices with their labels.
 \end{notation}
 %-------------
-
-%--------------
-\begin{example}
-Consider the flow
-\begin{align*}
-A=(&\{\;\nu_1\;,\;\nu_2\;,\;\nu_3\;\},\\
-   &\{\;\one\;,\;\two\;,\;\three\;,\;\four\;,\;\five\;\},\\
-   &\{\;\nu_1\mapsto\aiu\;,\;\nu_2\mapsto\acu\;,\;\nu_3\mapsto\aiu\;\},\\
-   &\{\;\one\mapsto\top\;,\;\two\mapsto\top\;,\;\three\mapsto\nu_2\;,\;
-        \four\mapsto\nu_2\;,\;\five\mapsto\top\;\},\\
-   &\{\;\one\mapsto\nu_1\;,\;\two\mapsto\nu_2\;,\;\three\mapsto\nu_1\;,\;
-        \four\mapsto\nu_3\;,\;\five\mapsto\nu_3\;\})
-\quad;
-\end{align*}
-the following are three of its possible representations:
-\[
-\vcenter{\hbox{\includegraphics{Figures/flowExample2}}}
-\quad,\qquad
-\vcenter{\hbox{\includegraphics{Figures/flowExample3}}}
-\qquad\hbox{and}\qquad
-\vcenter{\hbox{\includegraphics{Figures/flowExample4}}}
-\quad,
-\]
-in the last two diagrams, we also indicated each of the two possible polarity assignments. This flow has one cocontraction and two cointeraction vertices; it has three upper edges, $\one$, $\two$ and $\five$, and no lower edges.
-\end{example}
-%------------
 
 %--------------
 \begin{example}
@@ -188,7 +131,7 @@ The flow
 \]
 is obtained by juxtaposing (\emph{i.e.}, composing by identifying zero edges):
 \begin{itemize}
-\item three edges, 
+\item three edges,
 \item a flow obtained by composing a cut vertex with a cocontraction vertex, and
 \item a flow obtained by composing an identity vertex with a cut vertex.
 \end{itemize}
@@ -213,7 +156,7 @@ The left one is not a flow because it contains a cycle, and the right one becaus
 \begin{definition}\label{definition:FlowIsomorphism}
 Given two flows $\phi_1=(V_1,E_1,\eta_1,\up_1,\lo_1)$ and $\phi_2=(V_2,E_2,\eta_2,\up_2,\lo_2)$, an (\emph{atomic}) \emph{flow isomorphism}\index{flow!isomorphism} between $\phi_1$ and $\phi_2$ is a pair of functions $(f_V,f_E)$, such that
 \begin{itemize}
-\item $f_V$ is a bijection from $V_1$ to $V_2$; and 
+\item $f_V$ is a bijection from $V_1$ to $V_2$; and
 \item $f_E$ is a bijection from $E_1$ to $E_2$,
 \end{itemize}
 such that, for every $\epsilon$ in $E_1$,
@@ -284,7 +227,7 @@ Given a flow $\phi$ and a polarity assignment $\pi$ for $\phi$, the polarity ass
 %---------------
 
 %=======================================================
-\section{Paths and Cycles}\label{section:PathsAndCycles}
+\subsection{Paths and Cycles}\label{subsection:PathsAndCycles}
 
 We now define the notions of `path', `$\ai$-path' and `$\ai$-cycle' in atomic flows. Paths are sequences of adjacent edges that only `go down' or only `go up'; $\ai$-paths are formed by joining paths at interaction or cointeraction vertices; $\ai$-cycles are circular $\ai$-paths.
 
@@ -315,7 +258,7 @@ In addition, the flow has the paths and $\ai$-paths obtained from the shown ones
 \end{example}
 
 %=========================================
-\section{Subflows}\label{section:Subflows}
+\subsection{Subflows}\label{subsection:Subflows}
 
 \Tom{Removed superfluos clause and rephrased slightly to avoid overfull.}
 

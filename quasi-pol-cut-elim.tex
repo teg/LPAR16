@@ -1,0 +1,47 @@
+%&pdflatex
+% Thesis main file
+
+\documentclass[envcountsame,envcountreset]{llncs}
+
+%\usepackage{makeidx}
+\usepackage[expansion=false]{microtype}
+
+\usepackage{varioref}
+\usepackage[urw-garamond]{mathdesign} % Comment this to use Times fonts
+  \expandafter\ifx\csname leqslant\endcsname\relax\usepackage{txfonts}\fi
+\usepackage[lutzsyntax,noxy]{virginialake}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex,dvipsnames,usenames]{color}
+\usepackage{amsmath}
+
+%---------------------------------------------------------- REMOVE WHEN FINISHED
+\synctex=1
+% uncomment to show labels in the margin:
+%\usepackage[notref,notcite]{showkeys}
+%---------------------------------------------------------- REMOVE WHEN FINISHED
+
+\input{defs}
+
+\begin{document}
+
+\author{Paola Bruscoli\inst{1} \and Alessio Guglielmi\inst{2}\inst{1} \and Tom Gundersen\inst{3} \and Michel Parigot\inst{4}}
+\title{	Quasipolynomial Cut Elimination in Deep Inference via Atomic Flows and Threshold Formulae}
+
+\institute{LORIA \and University of Bath \and LIX \and PPS}
+
+\maketitle
+
+\bibliographystyle{splncs}
+
+\input{sks.tex}
+\input{atomic_flows.tex}
+\input{atomic_flows_and_derivations.tex}
+\input{normal_forms.tex}
+\input{global_reductions.tex}
+
+\small
+\bibliography{di-biblio,biblio}
+
+\end{document}
+
+

@@ -8,28 +8,6 @@
 \renewcommand{\le}{\leqslant}
 \renewcommand{\ge}{\geqslant}
 
-%-------------------------------------------
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{convention}[theorem]{Convention}
-
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-
-%-------------------------------------------
-% Make sure the numbering of theorems are reset
-\makeatletter
-\@addtoreset{theorem}{chapter}
-\@addtoreset{theorem}{section}
-\makeatother
 
 %-------------------------------------------
 \definecolor{darkgreen}{rgb}{0.0,0.4,0.0}
@@ -42,3 +20,14 @@
 %\nonotestrue % If this is commented, notes appear in the paper (if any)
 
 %-------------------------------------------
+% not defined as standard in the LLNCS style
+\spnewtheorem{notation}[theorem]{Notation}{\bfseries}{\rmfamily}
+\spnewtheorem{convention}[theorem]{Convention}{\bfseries}{\rmfamily}
+
+%-------------------------------------------
+
+%NEEDS DEFINING
+
+\newcommand{\fff}{\mathsf f}
+\newcommand{\ttt}{\mathsf t}
+\newcommand{\size}[1]{{\left\vert #1\right\vert}}\vlupdate\size
