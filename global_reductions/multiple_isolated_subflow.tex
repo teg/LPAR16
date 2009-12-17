@@ -1,6 +1,163 @@
-\newcommand{\MISR}{\mathsf{MISR}}
+\newcommand{\CutElim}{\mathsf{CutElim}}
 
 \newcommand{\Gammasf}{\mathsf\Gamma}
+\begin{definition}
+\TODO{Define $\gamma$ and $\Gammasf$.}
+\end{definition}
+
+\TODO{What if $a$ appears in a cut, but not in an interaction?}
+
+\begin{definition}\label{definition:CutElim}
+Given a derivation $\Phi$, where the distinct and mutually non-dual atoms $a_1$, $\dots$, $a_n$ appear in cut instances, and such that $\Phi$ is in simple form with respect to $a_1$, $\dots$, $a_n$, we define $\CutElim_n(\Phi,a_1,\dots,a_n)$ as follows:
+
+Since $\Phi$ is in simple form we can assume it has shape
+\[
+\vlder{\Phi'}{\SKS\setminus\{\aid,\aiu\}}
+{
+  \vlsbr[\beta\;.\;\vlinf{}{}{\fff}{\vls(a_1.\bar a^{\psi_1}_1)}\;.\;\cdots\;.\;\vlinf{}{}{\fff}{\vls(a_n.\bar a^{\psi_n}_n)}]
+}
+{
+  \vlsbr(\vlinf{}{}{\vls[a_1.\bar a^{\psi_1}_1]}{\ttt}\;.\;\cdots\;.\;\vlinf{}{}{\vls[a_n.\bar a^{\psi_n}_n]}{\ttt}\;.\;\vlinf{}{}{\vls[b_1.\bar b^{\phi^\pmi}_1]}{\ttt}\;.\;\cdots\;.\;\vlinf{}{}{\vls[b_m.\bar b^{\phi^\pmi}_m]}{\ttt})
+}\quad,
+\]
+and flow
+\[
+\vcenter{\hbox{\includegraphics{Figures/defCutElim}}}
+\quad.
+\]
+
+For every $0\le k\le N$, we define $\Phi_k$ to be
+\[
+\vlder{\Phi'\{\bar a_1^{\psi_1}/\gamma_{k,1},\dots,\bar a_n^{\psi_n}/\gamma_{k,n}\}}{\SKS\setminus\{\aid,\aiu\}}
+{
+ \vlsbr[\beta.(a_1.\gamma_{k,1}).\cdots.(a_n.\gamma_{k,n})]
+}
+{
+ \vls([a_1.\gamma_{k,1}]\;.\;\cdots\;.\;[a_n.\gamma_{k,n}]\;.\;\vlinf{}{}{\vls[b_1.\bar b^{\phi^\pmi}_1]}{\ttt}\;.\;\cdots\;.\;\vlinf{}{}{\vls[b_m.\bar b^{\phi^\pmi}_m]}{\ttt})
+}
+\quad;
+\]
+and we define $\CutElim_n(\Phi,a_1,\dots,a_n)$ to be
+\[
+\vlderivation
+{
+ \vlin{\cod}{}
+ {
+  \beta
+ }
+ {
+  \vlin{\swi}{}
+  {
+   \vls
+   [
+    \vlinf{\cod}{}{\beta}{\vls[\beta.\beta]}
+   \;\;\;.\;\;\;
+    \vlder{\Phi_N}{\SKS\setminus\{\aiu\}}
+    {
+     \vlsbr[\beta\;.\;(\vlinf{}{}{\ttt}{a_1}\;.\;\fff)\;.\;\cdots\;.\;(\vlinf{}{}{\ttt}{a_n}\;.\;\fff)]
+    }
+    {
+     \vls([a_1.\fff].\cdots.[a_n.\fff])
+    }
+   ]
+  }
+  {
+   \vlin{\swi}{}
+   {
+    \vls
+     [
+      \vlinf{\cod}{}{\beta}{\vls[\beta.\beta]}
+     \;\;\;\;.\;\;\;\;
+      \vlder{\Phi_{N-1}}{\SKS\setminus\{\aiu\}}
+      {
+       \vlsbr
+       [
+        \beta
+       \;\;.\;\;
+        \vlder{\Gammasf_N}{\SKS\setminus\{\aid,\aiu\}}
+        {
+         \vlsmallbrackets\vls([a_1.\fff].\cdots.[a_n.\fff])
+        }
+        {
+         \vlsmallbrackets\vls[(a_1.\gamma_{N-1,1}).\cdots.(a_n.\gamma_{N-1,n})]
+        }
+       ]
+      }
+      {
+       \vlsmallbrackets\vls([a_1.\gamma_{N-1,1}].\cdots.[a_n.\gamma_{N-1,n}])
+      }
+     ]
+   }
+   {
+    \vlin{\swi}{}
+    {
+     \vdots
+    }
+    {
+     \vlin{\swi}{}
+     {
+      \vls
+       [
+        \beta
+       \;\;\;\;.\;\;\;\;
+        \vlder{\Phi_1}{\SKS\setminus\{\aiu\}}
+        {
+         \vlsbr
+         [
+          \beta
+         \;\;.\;\;
+          \vlder{\Gammasf_2}{\SKS\setminus\{\aid,\aiu\}}
+          {
+           \vlsmallbrackets\vls([a_1.\gamma_{2,1}].\cdots.[a_n.\gamma_{2,n}])
+          }
+          {
+           \vlsmallbrackets\vls[(a_1.\gamma_{1,1}).\cdots.(a_n.\gamma_{1,n})]
+          }
+         ]
+        }
+        {
+         \vlsmallbrackets\vls([a_1.\gamma_{1,1}].\cdots.[a_n.\gamma_{1,n}])
+        }
+       ]
+     }
+     {
+      \vlhy
+      {
+        \vlder{\Phi_0}{\SKS\setminus\{\aiu\}}
+        {
+         \vlsbr
+         [
+          \beta
+         \;\;.\;\;
+          \vlder{\Gammasf_1}{\SKS\setminus\{\aid,\aiu\}}
+          {
+           \vlsmallbrackets\vls([a_1.\gamma_{1,1}].\cdots.[a_n.\gamma_{1,n}])
+          }
+          {
+           \vlsmallbrackets\vls[(a_1.\ttt).\cdots.(a_n.\ttt)]
+          }
+         ]
+        }
+        {
+         \vlsbr([\vlinf{}{}{a_1}{\fff}\;.\;\ttt]\;.\;\cdots\;.\;[\vlinf{}{}{a_n}{\fff}\;.\;\ttt])
+        }
+      }
+     }
+    }
+   }
+  }
+ }
+}
+\quad.
+\]
+\end{definition}
+
+
+
+%================== OLD STUFF
+
+\newcommand{\MISR}{\mathsf{MISR}}
+
 %----------------------------------
 \newcommand{\frmis}{{\mathsf{mis}}}
 \begin{definition}\label{definition:MultipleIsolatedSubflowsRemoval}
